@@ -1,6 +1,5 @@
 const express = require('express');
 const app = express();
-const UserRoutes = require("./routes/user");
 
 // Using body-parser middleware
 const BodyParser = require('body-parser');
@@ -21,6 +20,7 @@ app.get('/',(req,res)=>{
 
 
 // Routes
+const UserRoutes = require("./routes/user");
 app.use('/user',UserRoutes);
 
 
