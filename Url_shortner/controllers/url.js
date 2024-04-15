@@ -19,13 +19,15 @@ async function handleGenerateShortID(req,res){
 
 async function handleRedirectUrl(req,res){
     const shortId = req.params.shortId;
-    const entry = await URL.findOneAndUpdate({
-        shortId,
-    },{ $push:{
-        visithistory:{
-            timestramp:Date.now()
-        }
-    }})
+    // const entry = await URL.findOneAndUpdate({
+    //     shortId,
+    // },{ $push:{
+    //     visithistory:{
+    //         timestramp:Date.now()
+    //     }
+    // }})
+    const query = {shortID:shortId};
+    const entry = await URL.findOne(query);
     res.redirect(entry.redirectUrl);
 }
 module.exports = {
