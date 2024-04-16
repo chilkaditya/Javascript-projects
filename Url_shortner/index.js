@@ -1,6 +1,7 @@
 const express = require("express");
 const app = express();
-const UserRoutes = require("./routes/url");
+const UrlRoutes = require("./routes/url");
+const UserRoutes = require("./routes/user");
 
 
 // Using body-parser middleware
@@ -9,7 +10,8 @@ app.use(BodyParser.urlencoded({ extended: true }));
 app.use(BodyParser.json());
 
 // Routes
-app.use("/url",UserRoutes);
+app.use("/url",UrlRoutes);
+app.use("/user",UserRoutes);
 
 
 // Mongodb connection
